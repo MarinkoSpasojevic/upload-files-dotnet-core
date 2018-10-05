@@ -55,6 +55,7 @@ namespace UploadFilesServer
             }
 
             app.UseHttpsRedirection();
+            app.UseCors("CorsPolicy");
             app.UseMvc();
         }
     }

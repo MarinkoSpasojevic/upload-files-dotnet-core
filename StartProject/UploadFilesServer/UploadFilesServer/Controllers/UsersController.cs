@@ -49,6 +49,7 @@ namespace UploadFilesServer.Controllers
                     return BadRequest("Invalid model object");
                 }
 
+                user.Id = Guid.NewGuid();
                 _context.Add(user);
                 _context.SaveChanges();
 
