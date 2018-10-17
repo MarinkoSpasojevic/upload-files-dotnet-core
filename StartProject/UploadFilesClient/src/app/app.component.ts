@@ -45,5 +45,7 @@ export class AppComponent implements OnInit {
 
   public returnToCreate = () => {
     this.isCreate = true;
+    this.name = '';
+    this.address = '';
   }
 }
