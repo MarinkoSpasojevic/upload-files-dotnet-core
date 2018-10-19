@@ -9,7 +9,7 @@ namespace UploadFilesServer.Controllers
     [ApiController]
     public class UploadController : ControllerBase
     {
-        [HttpPost("upload"), DisableRequestSizeLimit]
+        [HttpPost, DisableRequestSizeLimit]
         public IActionResult Upload()
         {
             try
