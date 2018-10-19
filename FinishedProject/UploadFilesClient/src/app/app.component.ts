@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
   public address: string;
   public user: UserToCreate;
   public users: User[] = [];
+  public response: {'dbPath': ''}; 
 
 
   constructor(private http: HttpClient){}
@@ -26,7 +27,7 @@ export class AppComponent implements OnInit {
     this.user = {
       name: this.name,
       address: this.address,
-      imgPath: ''
+      imgPath: this.response.dbPath
     }
 
     this.http.post('https://localhost:5001/api/users', this.user)
@@ -46,4 +47,13 @@ export class AppComponent implements OnInit {
   public returnToCreate = () => {
     this.isCreate = true;
   }
+
+  public uploadFinished = (event) => {
+    this.response = event;
+  }
+
+  public createImgPath = (serverPath: string) => {
+    return `https://localhost:5001/${serverPath}`;
+  }
+
 }
