@@ -22,14 +22,14 @@ namespace UploadFilesServer.Controllers
                 {
                     var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
                     var fullPath = Path.Combine(pathToSave, fileName);
-                    var pathToDb = Path.Combine(folderName, fileName);
+                    var dbPath = Path.Combine(folderName, fileName);
 
                     using (var stream = new FileStream(fullPath, FileMode.Create))
                     {
                         file.CopyTo(stream);
                     }
 
-                    return Ok(new { pathToDb });
+                    return Ok(new { dbPath });
                 }
                 else
                 {
